@@ -8,7 +8,8 @@ app.use(express.json());
 
 connectDB();
 
-app.use('/api/v1/data', dataRouter)
+//Fetch the Seed Data and insert it into the database
+app.use('/api/v1/data', dataRouter);
 
 
 
