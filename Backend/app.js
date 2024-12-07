@@ -4,6 +4,7 @@ const app = express();
 require("dotenv").config();
 const {dataRouter} = require('./routes/data');
 const {searchTxRouter} = require('./routes/searchTx');
+const {statsRouter} = require('./routes/stats');
 
 app.use(express.json());
 
@@ -15,6 +16,10 @@ app.use('/api/v1/data', dataRouter);
 
 //Search Transaction Route
 app.use('/api/v1/searchTx', searchTxRouter);
+
+
+//Stats Route
+app.use('/api/v1/stats', statsRouter);
 
 
 
