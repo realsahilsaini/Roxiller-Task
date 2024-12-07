@@ -31,11 +31,20 @@ statsRouter.get('/totalsales', async (req,res)=>{
       return acc + item.price;
     }, 0)
 
+    const NotSold = await DataModel.find({
+      sold: false,
+      dateOfSale:{
+        $gte: startDate,
+        $lt: endDate
+      }
+    })
+
   res.json({
     startDate,
     endDate,
     totalSalesAmount: totalSales,
-    totalSalesCount: transactions.length
+    totalSalesCount: transactions.length,
+    NotSoldCount: NotSold.length
   })
 
 
